@@ -1,0 +1,5 @@
+env: "local"
+storage_path: "postgres://postgres:admin@localhost:5432/link_shortener?sslmode=disable"
+grpc:
+  port: 44044
+  timeout: 10h

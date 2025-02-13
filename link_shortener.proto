@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package link_shortener;
+
+option go_package = "zharikov.ls.v1;lsv1";
+
+service LinkShortener{
+    rpc Shorten (ShortenRequest) returns (ShortenResponse);
+    rpc Lengthen (LengthenRequest) returns (LengthenResponse);
+}
+
+message ShortenRequest{
+    string link = 1;
+}
+
+message ShortenResponse{
+    string short_link = 1;
+}
+
+message LengthenRequest{
+    string short_link = 1;
+}
+
+message LengthenResponse{
+    string link = 1;
+}
