@@ -7,6 +7,7 @@ import (
 	"go/link_shortener/internal/storage"
 
 	"github.com/lib/pq"
+	"github.com/pressly/goose/v3"
 )
 
 type Storage struct{
@@ -17,6 +18,10 @@ func New (storagePath string) (*Storage, error){
 	db, err := sql.Open("postgres", storagePath)
 	if err != nil{
 		return nil, err
+	}
+
+	if err := goose.Up(db, "./migrations"); err != nil {  
+		return nil, err 
 	}
 
 	return &Storage{
