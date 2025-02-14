@@ -17,12 +17,20 @@
 #### С использованием in-memory хранилища:     
 ```powershel
 $env:IN_MEMORY="true"; docker compose up -d
-``` 
-
+```
 #### С использованием PostgresSQL:
 ```powershel
 $env:IN_MEMORY="false"; docker compose up -d
 ```
+#### Выполнить миграции:
+```powershel
+goose up
+```
+
 ### Примечания
 Также в корне проекта находится файл proto, который описывает структуры данных и сервисы, используемые в проекте.
 Файла .gitignore нет
+
+### Косяки
+- авто миграции
+- логгер
