@@ -4,6 +4,7 @@ RUN apk --no-cache add ca-certificates
 
 COPY link_shortener_lin link_shortener_lin
 
+COPY migrations/ ./migrations/
 COPY local.yaml ./config/local.yaml  
 COPY .env .env
 
